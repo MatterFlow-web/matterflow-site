@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96.00" height="96.00" viewBox="0 0 96.00 96.00" role="img" aria-label="MatterFlow dot-matrix icon">
+  <title>MatterFlow dot-matrix icon</title>
+  <g>
+    <g transform="translate(0.00 0.00)"><circle cx="16.000" cy="16.000" r="10.880" fill="#00E599"/>
+    <circle cx="48.000" cy="16.000" r="10.880" fill="#00E599"/>
+    <circle cx="80.000" cy="16.000" r="10.880" fill="#00E599"/>
+    <circle cx="16.000" cy="48.000" r="10.880" fill="#00E599"/>
+    <circle cx="48.000" cy="48.000" r="10.880" fill="#00E599"/>
+    <circle cx="80.000" cy="48.000" r="10.880" fill="#334155"/>
+    <circle cx="16.000" cy="80.000" r="10.880" fill="#00E599"/>
+    <circle cx="48.000" cy="80.000" r="10.880" fill="#334155"/>
+    <circle cx="80.000" cy="80.000" r="10.880" fill="#334155"/></g>
+  </g>
+</svg>

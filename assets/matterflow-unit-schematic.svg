@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="330" viewBox="0 0 820 330">
+  <title>MatterFlow unit schematic</title>
+  <rect width="820" height="330" fill="#0A1D37"/>
+  <rect x="286" y="74" width="248" height="176" fill="#12294A" stroke="rgba(148,163,184,.38)"/>
+  <rect x="286" y="74" width="248" height="40" fill="rgba(0,229,153,.10)" stroke="rgba(0,229,153,.45)"/>
+  <rect x="406" y="114" width="128" height="60" fill="rgba(0,229,153,.07)" stroke="rgba(0,229,153,.32)"/>
+  <rect x="406" y="174" width="128" height="76" fill="rgba(0,229,153,.13)" stroke="rgba(0,229,153,.28)"/>
+  <line x1="96" y1="94" x2="286" y2="94" stroke="rgba(148,163,184,.55)" stroke-dasharray="3 4"/>
+  <line x1="534" y1="94" x2="724" y2="94" stroke="rgba(148,163,184,.55)" stroke-dasharray="3 4"/>
+  <line x1="470" y1="250" x2="470" y2="288" stroke="rgba(0,229,153,.65)" stroke-dasharray="3 4"/>
+  <line x1="470" y1="288" x2="560" y2="288" stroke="rgba(0,229,153,.65)" stroke-dasharray="3 4"/>
+  <circle cx="286" cy="94" r="3" fill="#94A3B8"/>
+  <circle cx="534" cy="94" r="3" fill="#94A3B8"/>
+  <circle cx="470" cy="250" r="3" fill="#00E599"/>
+  <path d="M330 134 h20 M330 148 h20 M330 162 h20" stroke="#00E599" stroke-width="2.4"/>
+  <path d="M426 128 v14 M448 128 v14 M470 128 v14 M492 128 v14 M514 128 v14"
+        stroke="rgba(0,229,153,.75)" stroke-width="2"/>
+  <g font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" letter-spacing="1.6">
+    <text x="298" y="99" fill="#00E599">GRAVITY CHUTE</text>
+    <text x="418" y="108" fill="#00E599">PADDLE KICK</text>
+    <text x="418" y="244" fill="#94A3B8">COLLECTION BIN</text>
+    <text x="96" y="318" fill="rgba(148,163,184,.55)" font-weight="400">SCHEMATIC — NOT TO SCALE</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="12.5">
+    <text x="96" y="68" fill="#00E599" font-weight="700">MIXED WASTE</text>
+    <text x="96" y="86" fill="#DCE6F2">enters</text>
+    <text x="724" y="68" fill="#00E599" font-weight="700" text-anchor="end">FILTERED WASTE</text>
+    <text x="724" y="86" fill="#DCE6F2" text-anchor="end">exits</text>
+    <text x="570" y="284" fill="#00E599" font-weight="700">ALUMINUM</text>
+    <text x="570" y="302" fill="#DCE6F2">diverted</text>
+  </g>
+</svg>

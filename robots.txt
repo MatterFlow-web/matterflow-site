@@ -1,0 +1,18 @@
+# MatterFlow
+# Not indexed by choice. The site is public; it is simply not listed in search.
+User-agent: *
+Disallow: /
+
+# Common AI / dataset crawlers, named explicitly — several ignore the wildcard above.
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /

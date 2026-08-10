@@ -42,11 +42,11 @@ strong{font-weight:600;color:#fff}
 
 .eyebrow{
   font-family:var(--mono);font-size:.7rem;font-weight:400;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--mint);margin:0 0 1.4rem;
+  text-transform:uppercase;color:var(--mint);margin:0 0 1.25rem;display:block;
 }
 .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--muted);margin:0}
-.mono.dim{color:rgba(148,163,184,.6)}
+.mono.dim{color:#8FA1B8}
 .lead{font-size:clamp(1.02rem,1.55vw,1.24rem);line-height:1.5;color:#DCE6F2;
   letter-spacing:-.012em;max-width:56ch}
 .prose p{color:var(--body)}
@@ -69,11 +69,14 @@ strong{font-weight:600;color:#fff}
 /* ── buttons ──────────────────────────────────────────────────────────── */
 .btn{
   display:inline-block;background:var(--mint);color:var(--navy);
-  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;text-decoration:none;padding:15px 26px;border-radius:0;
 }
 .btn:hover{background:#5CF0C0}
-.btn-sm{padding:10px 16px;font-size:.66rem}
+.btn-sm{padding:9px 15px;font-size:.7rem;letter-spacing:.09em;
+  background:transparent;color:var(--mint);box-shadow:inset 0 0 0 1px var(--line-mint)}
+.btn-sm:hover{background:rgba(0,229,153,.12);color:#7FF2CC;
+  box-shadow:inset 0 0 0 1px var(--mint)}
 .btn-ghost{background:transparent;color:var(--mint);
   box-shadow:inset 0 0 0 1px var(--line-mint)}
 .btn-ghost:hover{background:rgba(0,229,153,.1)}
@@ -186,7 +189,7 @@ strong{font-weight:600;color:#fff}
 .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:26px;align-items:end}
 .site-foot .mono{color:var(--mint)}
-.site-foot .mono.dim{color:rgba(148,163,184,.6)}
+.site-foot .mono.dim{color:#8FA1B8}
 
 /* ── responsive ───────────────────────────────────────────────────────── */
 @media (max-width:860px){
@@ -206,3 +209,87 @@ strong{font-weight:600;color:#fff}
   .det{opacity:1;animation:none}
   *{transition:none!important}
 }
+
+/* ── flow diagram ─────────────────────────────────────────────────────── */
+.flow{margin:clamp(34px,5vw,56px) 0 0;padding:clamp(14px,2.4vw,30px);
+  border:1px solid var(--line-mint);overflow-x:auto}
+.flow img{width:100%;min-width:640px;height:auto}
+
+/* ── team ─────────────────────────────────────────────────────────────── */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));
+  gap:clamp(22px,3vw,38px);margin-top:2.6rem}
+.person .tile{aspect-ratio:1;background:var(--navy);border:1px solid var(--line);
+  display:grid;place-items:center;margin-bottom:18px}
+.person .tile svg{width:38%;height:auto}
+.person h3{margin:0 0 .35rem;font-size:1.08rem}
+.role{color:var(--mint);font-size:.66rem;margin:0}
+
+.link{color:var(--mint);text-underline-offset:4px}
+.link:hover{color:#7FF2CC}
+
+
+/* ── footprint diagram sits inside the pillars band ───────────────────── */
+.footprint{margin-top:clamp(38px,5vw,60px)}
+.footprint img{min-width:600px}
+
+/* ── pilot partnership — two photos, equal weight ─────────────────────── */
+.shot-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,32px);
+  margin-top:clamp(38px,5vw,60px)}
+.shot-pair .shot{margin:0}
+.shot-pair .ph{aspect-ratio:4/3}
+.shot-pair img{aspect-ratio:4/3;object-fit:cover}
+@media (max-width:700px){.shot-pair{grid-template-columns:1fr}}
+
+/* ── accessibility ────────────────────────────────────────────────────── */
+/* Scrollable diagram regions are focusable, so they need a visible ring. */
+.flow:focus-visible{outline:2px solid var(--mint);outline-offset:4px}
+
+/* Respect users who ask for less motion or higher contrast. */
+@media (prefers-contrast:more){
+  :root{--body:#E2E8F0;--muted:#CBD5E1;--line:rgba(203,213,225,.45)}
+  .btn-ghost{box-shadow:inset 0 0 0 2px var(--mint)}
+}
+
+/* Never suppress the focus ring for keyboard users, even inside dark bands. */
+a:focus-visible,button:focus-visible{outline:2px solid var(--mint);outline-offset:3px;
+  border-radius:0}
+
+/* WCAG 2.5.8 — every interactive target at least 24 x 24 CSS px. */
+.site-nav a:not(.btn){display:inline-flex;align-items:center;min-height:26px;padding:2px 2px}
+.prose a.link{display:inline-block;padding:4px 0;min-height:26px}
+
+/* ── hero glyph ───────────────────────────────────────────────────────── */
+.glyph{margin-top:2rem;opacity:.9}
+
+/* ── operating context plan ───────────────────────────────────────────── */
+
+
+/* ── the day claim ────────────────────────────────────────────────────── */
+.claim{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(22px,3vw,44px);
+  margin-top:clamp(38px,5vw,58px);padding-top:clamp(28px,3.5vw,40px);
+  border-top:1px solid var(--line-mint)}
+.claim-fig{display:flex;align-items:baseline;gap:10px;flex:none}
+.claim-num{font-family:var(--sans);font-weight:900;font-size:clamp(4rem,9vw,7rem);
+  letter-spacing:-.05em;line-height:.82;color:var(--mint)}
+.claim-unit{font-family:var(--mono);font-size:.9rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--mint)}
+.claim-body{flex:1;min-width:260px}
+.claim-lead{font-size:clamp(1.1rem,1.8vw,1.35rem);line-height:1.35;letter-spacing:-.02em;
+  font-weight:600;color:#fff;margin:0 0 .7rem;max-width:none}
+.claim-body .xs{color:var(--body);max-width:none;margin:0}
+
+/* ── photo slots ──────────────────────────────────────────────────────── */
+.shot{margin:clamp(34px,5vw,56px) auto 0;padding:0}
+.shot img{width:100%;height:auto;border:1px solid var(--line-mint);display:block}
+.shot figcaption{margin-top:14px;color:var(--mint)}
+.shot .ph{aspect-ratio:16/7;background:var(--navy-800);border:1px dashed var(--line-mint);
+  display:grid;place-items:center;color:var(--muted);font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:20px}
+.footprint img{min-width:520px}
+
+/* Photographs sit under the same dark discipline as everything else. */
+.shot img{filter:saturate(.92)}
+.shot-pair figcaption{line-height:1.5}
+
+/* Careers action sits on its own line, clear of the paragraph above it. */
+.cta-inline{margin-top:1.6rem;max-width:none}

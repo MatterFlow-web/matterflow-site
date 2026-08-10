@@ -1,46 +1,61 @@
 # matterflow-usa.com
 
-Static site for MatterFlow. No build step, no framework, no dependencies — three files and a
-folder of assets. Hosted free on GitHub Pages.
+Static site. No build step, no framework, no dependencies.
 
 ```
-index.html          the whole site
-style.css           the design system
-CNAME               tells GitHub which domain to serve
-assets/             schematic, favicon, social card, logo
+index.html            the whole site — all copy lives here
+style.css             the design system — tokens at the top
+robots.txt            keeps the site out of search results
+assets/               photos, diagrams, favicon, social card
 ```
+
+Repository: **github.com/MatterFlow-web/matterflow-site**
 
 ---
 
-## Deploy
+## 1 · Upload the files
 
-**1 · Create the repository**
+Open the repo and click **uploading an existing file** (or **Add file ▸ Upload files**).
 
-On GitHub, make a new **public** repository. Public matters — GitHub Pages is only free on
-public repos. Name it anything; `matterflow-site` is fine.
+Unzip this folder and drag in **the contents**, not the folder itself. `index.html` must sit at
+the repository root, not inside a `site/` folder — this is the single most common mistake.
 
-**2 · Upload the files**
+When it's done the repo should list exactly:
 
-Drag the *contents* of this folder into the repo (not the folder itself — `index.html` must sit
-at the repository root). Commit.
+```
+index.html   style.css   robots.txt   README.md   assets/
+```
 
-**3 · Turn on Pages**
+Write a commit message and click **Commit changes**.
 
-Settings → Pages → Source: **Deploy from a branch** → Branch: `main`, folder `/ (root)` → Save.
+> There is deliberately **no CNAME file** in this upload. GitHub writes one for you in step 3,
+> and having one present before DNS is configured makes the site unreachable while you're
+> trying to check it.
 
-Wait a minute or two. Your site appears at `https://YOURNAME.github.io/matterflow-site/`.
-Confirm it looks right before touching DNS.
+## 2 · Turn on Pages and check it works
 
-**4 · Add the custom domain — in GitHub first**
+**Settings ▸ Pages ▸ Source: Deploy from a branch ▸ Branch `main` / `(root)` ▸ Save.**
 
-Settings → Pages → Custom domain → enter `matterflow-usa.com` → Save.
+Wait a minute, then open:
 
-> Do this **before** changing DNS. Pointing DNS at GitHub before claiming the domain in your
-> repo settings leaves a window where someone else could host a site on it.
+```
+https://matterflow-web.github.io/matterflow-site/
+```
 
-**5 · DNS, at Squarespace**
+Look at it properly — on a phone too. Fix anything that needs fixing before you touch DNS. At
+this point nothing points at your domain, so there is no way to break anything.
 
-Squarespace account → Domains → matterflow-usa.com → **DNS**.
+## 3 · Claim the domain in GitHub — before DNS
+
+**Settings ▸ Pages ▸ Custom domain** → enter `matterflow-usa.com` → **Save**.
+
+GitHub commits a `CNAME` file for you. Do this *before* step 4: pointing DNS at GitHub without
+first claiming the domain in your repo leaves a window where someone else could serve a site
+on it.
+
+## 4 · DNS at Squarespace
+
+**Squarespace account ▸ Domains ▸ matterflow-usa.com ▸ DNS.**
 
 Add four **A records** on the apex (host `@`):
 
@@ -51,61 +66,57 @@ Add four **A records** on the apex (host `@`):
 185.199.111.153
 ```
 
-And one **CNAME** so the www version works:
+Add one **CNAME** so the www address works:
 
 ```
-Host: www    →    YOURNAME.github.io
+Host: www    →    matterflow-web.github.io
 ```
-
-**6 · Enforce HTTPS**
-
-Back in Settings → Pages, wait for the DNS check to pass, then tick **Enforce HTTPS**. GitHub
-issues a free certificate automatically. This can take up to 24 hours; usually it's minutes.
-
----
 
 ## ⚠ Do not break your email
 
-`matterflow-usa.com` is managed by **Google Workspace**. Its **MX records** are what deliver
-your mail.
+This domain is managed by **Google Workspace**, and its **MX records** deliver your mail.
 
-- **Add** the A and CNAME records above. Do not use any "reset to defaults", "remove all
-  records", or bulk-replace option.
-- **Leave every MX record exactly as it is.**
+- **Add** the records above. Never use "reset to defaults", "remove all records", or any bulk
+  replace option.
+- **Leave every MX record untouched.**
 - Leave Domain Forwarding empty.
 
-Changing A and CNAME records does not affect mail. Wiping the zone does. This is the single
-most common way people take their own email offline during a migration.
+Adding A and CNAME records does not affect mail. Wiping the zone does, and that is how people
+take their own email offline during a migration.
+
+## 5 · HTTPS
+
+Back in **Settings ▸ Pages**, wait for the DNS check to pass, then tick **Enforce HTTPS**.
+GitHub issues a free certificate. Usually minutes; allow up to 24 hours.
 
 ---
 
-## Editing
+## Editing later
 
-Everything is plain HTML and CSS — edit on GitHub directly (click a file, then the pencil) and
-the site rebuilds in about a minute.
+Click any file in GitHub, hit the pencil, edit, commit. The site rebuilds in about a minute.
 
-**Copy** lives in `index.html`, in readable sections marked by comments.
-**Colours, type, and spacing** live at the top of `style.css` as custom properties. Change
-`--mint` in one place and it changes everywhere.
+- **Copy** — `index.html`, in sections marked by comments.
+- **Colours, type, spacing** — the `:root` block at the top of `style.css`. Change `--mint`
+  once and it changes everywhere.
+- **Photos** — drop a replacement into `assets/` using the same filename and it swaps itself.
 
-Design tokens match `matterflow-theme.css` from the brand kit, so the site, the deck, and the
-compliance report stay in step.
+## What's on the page
 
----
+Hero · Built for the back of house · Space / Time / Labor with the footprint diagram and the
+one-day claim · Pilot partnership · One stream in, two streams out · Founding team · Careers ·
+Contact.
 
-## Two things left undone
+## Notes
 
-**The contact button is a `mailto:` link.** Static hosting has no server, so there is no form
-handler. `mailto:` works everywhere and costs nothing, but it loses people who use webmail. If
-you want a real form, [Formspree](https://formspree.io) has a free tier and needs only a form
-`action` — say the word and I'll wire it in.
+**Search indexing is off.** `robots.txt` plus a `noindex` meta tag keep the site out of search
+results and name the major AI crawlers explicitly. It stays public to anyone with the link —
+noindex is a request to crawlers, not a lock. Delete both when you want to be found.
 
-**There are no photographs.** The hero is the detection overlay rendered live in CSS rather
-than an image. That is deliberate — it loads instantly and scales cleanly — but a real
-photograph of the unit on a dock would carry more weight. Drop images into `assets/` and they
-can go behind the hero with the `rgba(10,29,55,0.75)` scrim the guidelines require.
+**The repo is public**, which the free GitHub Pages tier requires. Nothing sensitive is in it,
+but the source is readable by anyone who finds it.
 
-**No invented numbers.** Diversion rate, footprint, throughput, cost per ton — none appear,
-because I would have had to make them up on a site whose argument is that MatterFlow logs and
-proves things. One real figure from a deployment, in the pillars section, will do more work
-than any sentence here.
+**The one-day figure is stated as a target**, not a result. Once the Coliseum pilot produces a
+real number, change that line in `index.html` — an achieved figure is a far stronger claim.
+
+**Contact is a `mailto:` link.** Static hosting has no form handler. If you want a real form,
+Formspree's free tier needs only a form `action` attribute.
